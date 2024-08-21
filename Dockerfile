@@ -1,5 +1,10 @@
 FROM node:18-alpine
 
+# Essentials
+RUN apk add -U tzdata
+ENV TZ=Europe/Berlin
+RUN cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+
 WORKDIR /usr/src/app
 ADD . ./
 
